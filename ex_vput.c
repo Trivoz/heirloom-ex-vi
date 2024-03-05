@@ -539,7 +539,7 @@ int	slakused;		/* This much of tabslack will be used up */
  * This routine MUST be called before insert mode is run,
  * and brings all segments of the current line to the top
  * of the screen image buffer so it is easier for us to
- * maniuplate them.
+ * manipulate them.
  */
 void
 vprepins(void)
@@ -615,7 +615,7 @@ vinschar(int c)
 		 * make space for another segment of this line
 		 * (on an intelligent terminal) or just remember
 		 * that next line was clobbered (on a dumb one
-		 * if we don't care to redraw the tail.
+		 * if we don't care to redraw the tail.)
 		 */
 		if (AL) {
 			vnpins(0);
@@ -1342,7 +1342,7 @@ def:
 		/*
 		 * Now get away with doing nothing if the characters
 		 * are the same, provided we are not in insert mode
-		 * and if we are in hardopen, that the terminal has overstrike.
+		 * and (if we are in hardopen) that the terminal has overstrike.
 		 */
 		if ((d & ~MULTICOL) == (c & TRIM & ~MULTICOL) && !insmode &&
 				(state != HARDOPEN || OS) && c != MULTICOL) {
@@ -1359,11 +1359,11 @@ def:
 		}
 		/*
 		 * Backwards looking optimization.
-		 * The low level cursor motion routines will use
+		 * The low-level cursor motion routines will use
 		 * a cursor motion right sequence to step 1 character
 		 * right.  On, e.g., a DM3025A this is 2 characters
 		 * and printing is noticeably slower at 300 baud.
-		 * Since the low level routines are not allowed to use
+		 * Since the low-level routines are not allowed to use
 		 * spaces for positioning, we discover the common
 		 * case of a single space here and force a space
 		 * to be printed.
@@ -1436,7 +1436,7 @@ def:
 		vputc(c & TRIM);
 
 		/*
-		 * In insert mode, IP is a post insert pad.
+		 * In insert mode, IP is a post-insert pad.
 		 */
 		if (insmode)
 			vputp(IP, DEPTH(vcline));
@@ -1445,7 +1445,7 @@ def:
 		/*
 		 * CONCEPT braindamage in early models:  after a wraparound
 		 * the next newline is eaten.  It's hungry so we just
-		 * feed it now rather than worrying about it.
+		 * feed it now rather than worrying about it later.
 		 * Fixed to use	return linefeed to work right
 		 * on vt100/tab132 as well as concept.
 		 */
@@ -1513,7 +1513,7 @@ physdc(int stcol, int endcol)
 		vgotoCL(stcol);
 	} else {
 		/*
-		 * HP like delete mode.
+		 * HP-like delete mode.
 		 * Compute how much text we are moving over by deleting.
 		 * If it appears to be faster to just retype
 		 * the line, do nothing and that will be done later.
@@ -1546,7 +1546,7 @@ physdc(int stcol, int endcol)
 	/*
 	 * Straighten up.
 	 * With CONCEPT like terminals, characters are pulled left
-	 * from first following null.  HP like terminals shift rest of
+	 * from first following null.  HP-like terminals shift rest of
 	 * this (single physical) line rigidly.
 	 */
 	if (IN) {

@@ -82,7 +82,7 @@ Release 2/25/05
 * If a line began with a tabulator and another tabulator was inserted with
   the cursor located on the first tabulator, the display was not updated
   appropriately since the last release (Bugreport by Matthew Fischer). (P)
-* Fixed a segmentation fault that occured in multibyte locales when operation
+* Fixed a segmentation fault that occurred in multibyte locales when operation
   was continued after vi had been stopped by ^Z, with the cursor positioned
   in a line longer than the terminal width as the last line of the current
   screen.
@@ -210,7 +210,7 @@ Release 8/27/03
   newly read input file is too long but no changes were made by the user.
 * The POSIX_2 preprocessor define has been removed. The behavior previously
   enabled by this variable is now the default (except as noted below).
-* Backslash inside RE bracket expresssions (as in [\]]) is now recognized
+* Backslash inside RE bracket expressions (as in [\]]) is now recognized
   as an escape character by default. This is not POSIX.2 compliant, but is
   compatible with historic vi behavior, is demanded by the some traditional
   standards such as the System V Interface definition, and is compatible
